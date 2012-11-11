@@ -28,4 +28,7 @@ Tweets Checked: 4550
 Average Tweet Length: 12 words per tweet   
 
 ##Usage
-The libraries webpy and tweepy are already included. nltk has to be installed on your system (http://nltk.org/install.html).
+The libraries webpy and tweepy are already included. nltk has to be installed on your system (http://nltk.org/install.html). 
+
+The program can be started by navigating to the downloaded folder and  typing "python gui_tweetspellchecker.py" in the commandline. This starts the webserver which is reachable through the browser (http://localhost:8080 ) 
+
