@@ -35,7 +35,7 @@ class start(object):
 			is_running = True
 			tweet_spell_checker = twitterspellcheck.TweetSpellChecker(locations)
 			tweet_spell_checker.start()
-		return render.update([], "SpellChecking started.")
+		return render.update([], "Spell checking started. Page will be updated with new results every few seconds.")
 
 class update(object):
 	"""Update results interactively"""
@@ -58,7 +58,7 @@ class stop(object):
 			tweet_spell_checker.join()
 			stats = tweet_spell_checker.get_statistics()
 			tweet_spell_checker = None
-			return render.update(stats, "SpellChecking finished.")
+			return render.update(stats, "Spell checking finished.")
 		else:
 			return render.update([], "Something went wrong")
 
