@@ -1,4 +1,4 @@
-#Spell checking tweets from two locations and comparing results
+#Twitter Wars: Spell checking tweets from two locations and comparing results
 
 ##Approach
 The results can be seen on the website which was created using webpy (http://webpy.org/ ,  https://github.com/webpy/webpy). The spell checking can be started and stopped. Results are updated automatically.
