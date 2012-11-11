@@ -1,0 +1,44 @@
+$def with (page)
+
+<html>
+<head>
+    <title>My Blog</title>
+    <style>
+        #menu {
+            width: 200px;
+            float: right;
+        }
+    </style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+jQuery(document).ready(function() {
+  function callMeOften() {
+$$.get('/update', function(data) {
+  $$('#result').html(data);
+ // alert('Load was performed.' + data);
+});
+}
+var holdTheInterval = setInterval(callMeOften, 5000); 
+});
+</script>
+</head>
+<body>
+
+<ul id="menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/new">New Post</a></li>
+    <li><a href="/register">Register</a></li>
+    <li><a href="/login">Login</a></li>
+</ul>
+<form method="post" action="add">
+<p><input type="text" name="title" /> <input type="submit" value="Add" /></p>
+</form>
+
+<form method="get" action="start">
+<p><input type="text" name="title" /> <input type="submit" value="start" /></p>
+</form>
+
+<div id="result"> /div>
+
+</body>
+</html>

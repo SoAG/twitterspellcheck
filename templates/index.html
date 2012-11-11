@@ -1,0 +1,61 @@
+$def with (page)
+
+<html>
+<head>
+    <title>My Blog</title>
+    <style>
+        #menu {
+            width: 200px;
+            float: right;
+        }
+    </style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+
+
+jQuery(document).ready(function() {
+
+  function checkPeriodically() {
+    $$.get('/update', function(data) {
+      $$('#result').html(data);
+    });
+  }
+
+  var periodical_check;
+
+  $$('#start').click(function(event) {
+    event.preventDefault();
+    $$.get('/start', function(data) {
+      $$('#result').html(data);
+      periodical_check = setInterval(checkPeriodically, 8000);
+    });
+  });
+
+
+  $$('#stop').click(function(event) {
+    clearInterval(periodical_check);
+    periodical_check = null;
+    event.preventDefault();
+    $$.get('/stop', function(data) {
+      $$('#result').html(data);
+    });
+  });
+
+});
+
+</script>
+</head>
+
+<body>
+
+<ul id="menu">
+    <li><a id="start" href="/start">Start</a></li>
+    <li><a id="stop" href="/stop">Stop</a></li>
+</ul>
+
+
+<div id="result" style="width: 1000px; margin: 0 auto;"> </div>
+
+</body>
+</html>

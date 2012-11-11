@@ -1,0 +1,37 @@
+$def with (name, message)
+
+$if message != None:
+	<div>
+	$message
+	</div>
+<div id="res" style="float: left; margin: 0 auto; width: 1000px;"> 
+	$if (len(name) > 1):
+		$for v,s in name.iteritems():
+			<div style="width: 400px; float: left; margin-right: 20px; background-color: gray; padding: 10px;">
+			<h1>$v</h1>
+			Average Tweet Error: $(s.avg_tweet_error*100) % of words wrong equal to $(s.avg_tweet_length*s.avg_tweet_error) words per tweet<br/>
+			Average Word Error: $(s.avg_word_error*100) % characters wrong per word equal to $(s.avg_word_length*s.avg_word_error) characters per word<br/>
+			Average Word Length: $s.avg_word_length<br/>
+			Tweets Checked: $s.tweets_checked <br/>
+			Average Tweet Length: $s.avg_tweet_length words per tweet<br/>
+			<br/>
+			<div style="overflow:auto; width:410px; height: 500px">
+			Misspelled words (highest occurence first)
+			<table>
+				<th>word</th><th>occurence</th>
+				<tbody>
+				$for w in s.get_wrong_words():
+					<tr>
+					<td>
+					$w 
+					</td>
+					<td>
+					$s.wrong_words[w]
+					</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</div>
+
+</div>
